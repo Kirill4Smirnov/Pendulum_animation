@@ -6,12 +6,12 @@ window_width = 1000
 window_height = 600
 theta0 = 1.0 #initial angle
 theta_inc0 = 10.0 #initial angle speed
-length = 1.0
-g = 10.0
-step = 0.01
-fric = 0.5
+length = 1.0 #length of the pendulum
+g = 10.0 #acceleration of gravity
+step = 0.01 #accuracy of computing/seconds per step
+fric = 0.5 #friction coefficient
 
-y0 = 250
+y0 = 250 #position of pendulum mount
 
 def create_window(window_width_, window_height_):
     window = Tk()
@@ -55,9 +55,3 @@ def animation(canv):
 window = create_window(window_width, window_height)
 canvas = create_canvas(window, window_width, window_height)
 animation(canvas)
-
-theta_n = theta0
-theta_inc_n = theta_inc0
-for i in range(100):
-    theta_n, theta_inc_n = pos(theta_n, theta_inc_n)
-    print(theta_n, window_width/2 + ceil(length*200*sin(theta_n)), y0+ ceil(length*200*cos(theta_n)))
